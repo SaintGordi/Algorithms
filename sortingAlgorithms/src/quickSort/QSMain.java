@@ -1,5 +1,12 @@
 package quickSort;
-
+/**
+ * BIG-O:
+ * Pros:
+ * Cons:
+ * Stable:
+ * Logic:
+ *
+ */
 public class QSMain{
     /**
      * @param intArray The array to be sorted
@@ -20,9 +27,6 @@ public class QSMain{
 
         int pivotIndex = partition(input, start, end);
         quickSort(input, start, pivotIndex);
-        // for (int i = 0; i < input.length; i++) {
-        //     System.out.println(input[i]);
-        // }
         quickSort(input, pivotIndex + 1, end);
     }
 

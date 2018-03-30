@@ -1,22 +1,60 @@
 
 import bubbleSort.BSMain;
+import insertionSort.ISMain;
 import quickSort.QSMain;
 
+import java.util.Random;
+
 public class Main{
-
+    public static final String algorithm = "BS";
     public static void main(String[] args){
-        int[] intArray = { 20, 35, -15, 7, 55, 1, -22 };
+        int amount = 1000;
+//        int[] intArray = { 20, 35, -15, 7, 55, 1, -22 };
+        int[] intArray = new int[amount];
 
-        QSMain.quickSort(intArray);
-        print2DIntArray(intArray);
 
-        BSMain.bubbleSort(intArray);
-        print2DIntArray(intArray);
+        long startTime, duration = 0;
+        initArray(1 , 5000, amount, intArray);
+        print2DIntArray(intArray , duration);
+        switch (algorithm){
+            case("QS"):
+                startTime = System.currentTimeMillis();
+                QSMain.quickSort(intArray);
+                duration = System.currentTimeMillis() - startTime;
+                print2DIntArray(intArray , duration);
+                break;
+            case("IS"):
+                startTime = System.currentTimeMillis();
+                ISMain.insertionSort(intArray);
+                duration = System.currentTimeMillis() - startTime;
+                print2DIntArray(intArray , duration);
+                break;
+            case("BS"):
+                startTime = System.currentTimeMillis();
+                BSMain.bubbleSort(intArray);
+                duration = System.currentTimeMillis() - startTime;
+                print2DIntArray(intArray , duration);
+                break;
+
+        }
     }
 
-    public static void print2DIntArray(int[] intArray){
+    public static void print2DIntArray(int[] intArray, long duration){
         for (int anIntArray : intArray) {
-            System.out.println(anIntArray);
+            System.out.print(anIntArray + " ");
         }
+
+        System.out.println("\nDuration: " + duration);
+    }
+
+    public static void initArray(int min, int max, int amount, int[] intArray){
+        Random random = new Random();
+
+        for (int i = 0; i < amount; i++) {
+
+            int num = min + random.nextInt(max);
+            intArray[i] = num;
+        }
+
     }
 }
