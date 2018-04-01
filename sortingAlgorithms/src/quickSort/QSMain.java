@@ -1,6 +1,6 @@
 package quickSort;
 /**
- * BIG-O:
+ * BIG-O: O(n^2)
  * Pros:
  * Cons:
  * Stable:

@@ -1,5 +1,13 @@
 package bubbleSort;
-
+/**
+ * BIG-O: O(n^2)
+ * Pros:
+ * Cons:
+ * Stable:
+ * Logic: get the first element and compares it with the next one if the next number is smaller, it swaps them and then checks again the next one
+ *
+ *
+ */
 public class BSMain{
 
     public static int[] bubbleSort(int[] intArray){
