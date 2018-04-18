@@ -23,4 +23,21 @@ public class ISMain {
 
         return intArray;
     }
+
+
+
+    // Same algorithm but with recursive implementation
+    public static void insertionSortRecursive(int[] intArray, int numItems){
+        if(numItems < 2){
+            return;
+        }
+        insertionSortRecursive(intArray, numItems - 1);
+        int newElement = intArray[numItems];
+        int i;
+
+        for(i = numItems; i > 0 && intArray[i-1] > newElement; i--){
+            intArray[i] = intArray[i-1];
+        }
+        intArray[i] = newElement;
+    }
 }

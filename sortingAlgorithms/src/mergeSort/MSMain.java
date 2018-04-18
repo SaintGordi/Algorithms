@@ -15,7 +15,7 @@ public class MSMain {
     }
 
     private static void merge(int[] intArray, int start, int mid, int end){
-        if(intArray[mid -1] <= intArray[mid]){
+        if(intArray[mid -1] >= intArray[mid]){
             return;
         }
 
@@ -26,7 +26,7 @@ public class MSMain {
         int[] temp = new int[end-start];
 
         while (i < mid && j < end){
-            temp[tempIndex++] = intArray[i] <= intArray[j] ? intArray[i++] : intArray[j++];
+            temp[tempIndex++] = intArray[i] >= intArray[j] ? intArray[i++] : intArray[j++];
         }
 
         System.arraycopy(intArray, i, intArray, start + tempIndex, mid - i);

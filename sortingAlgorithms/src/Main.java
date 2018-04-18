@@ -8,16 +8,16 @@ import selectionSort.SSMain;
 import java.util.Random;
 
 public class Main{
-    public static final String algorithm = "MS";
+    public static final String algorithm = "IS";
 
     public static void main(String[] args){
-        int amount = 1000;
+        int amount = 10;
 //        int[] intArray = { 20, 35, -15, 7, 55, 1, -22 };
         int[] intArray = new int[amount];
 
 
         long startTime, duration = 0;
-        initArray(1 , 5000, amount, intArray);
+        initArray(1 , 100, amount, intArray);
         print2DIntArray(intArray , duration);
         switch (algorithm){
             case("QS"):
@@ -28,7 +28,7 @@ public class Main{
                 break;
             case("IS"):
                 startTime = System.currentTimeMillis();
-                ISMain.insertionSort(intArray);
+                ISMain.insertionSortRecursive(intArray, intArray.length-1);
                 duration = System.currentTimeMillis() - startTime;
                 print2DIntArray(intArray , duration);
                 break;
